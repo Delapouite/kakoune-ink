@@ -86,6 +86,7 @@ var App = createClass({
             exportColorScheme: this.exportColorScheme,
             getFace: this.getFace,
             getModifiedFaces: this.getModifiedFaces,
+            selectFace: this.selectFace,
             resetFace: this.resetFace,
             resetSelectedFaceProp: this.resetSelectedFaceProp,
             resetState: this.resetState,

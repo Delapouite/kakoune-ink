@@ -250,44 +250,32 @@ class PostProcess extends Component {
 
 const ModifiedFaces = (props) => {
     var modifiedFaces = props.getModifiedFaces()
-    var faces = (modifiedFaces.length === 0 ? [null] : modifiedFaces)
-    var children = faces.map((face, index) => {
-        return h(ModifiedFace, {
+    var children = modifiedFaces.map((face, index) =>
+        h(ModifiedFace, {
             key: index,
             face,
-            resetFace: props.resetFace})
-    })
-
+            selectFace: props.selectFace,
+            resetFace: props.resetFace}))
     return h(Section, merge(props, {
         id: 'modifiedFaces',
         title: 'Modified faces',
         children}))
 }
 
-class ModifiedFace extends Component {
-    render() {
-        var face
-        var resetButton
-
-        if (this.props.face === null) {
-            face = 'None'
-            resetButton = null
-        } else {
-            face = this.props.face
-            resetButton = h('button', {
+const ModifiedFace = ({ face, selectFace, resetFace }) =>
+    h('div', {className: 'line button-line'},
+        h('div', {className: 'left pointer'},
+            h('span', { onClick: () => selectFace(face) }, face)),
+        h('div', {className: 'right'},
+            h('button', {
                 className: 'small-button',
-                onClick: () => this.onClick ()},
-                'Reset')
-        }
+                onClick: () => resetFace(face) },
+                'Reset')))
 
-        return h('div', {className: 'line button-line'},
-            h('div', {className: 'left'}, face),
-            h('div', {className: 'right'}, resetButton))
-    }
-
-    onClick() {
-        this.props.resetFace(this.props.face)
-    }
+ModifiedFace.propTypes = {
+    face: PropTypes.string.isRequired,
+    selectFace: PropTypes.func.isRequired,
+    resetFace: PropTypes.func.isRequired
 }
 
 class Export extends Component {

@@ -748,6 +748,9 @@ aside section h2 .icon {
 .dark .modified-faces-line.none {
   color: #6f6f6f; }
 
+.pointer {
+  cursor: pointer; }
+
 .export-line-input .left {
   float: left;
   line-height: 3rem;

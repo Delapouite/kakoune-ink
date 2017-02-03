@@ -20,7 +20,6 @@ class Paste extends Component {
 
     componentDidUpdate() {
         if (this.props.parsedSource !== undefined) return
-
         this.refs.pastedSource.focus()
     }
 

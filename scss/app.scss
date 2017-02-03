@@ -369,6 +369,10 @@ aside section h2 .icon {
     color: $df4;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 // .export-line-input
 
 .export-line-input .left {
@@ -416,7 +420,7 @@ footer {
     padding: 2rem;
     position: fixed;
     text-align: right;
-    top: 50%; 
+    top: 50%;
     width: 80rem;
 }
 
