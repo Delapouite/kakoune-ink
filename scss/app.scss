@@ -47,7 +47,7 @@ h1 {
 }
 
 .dark h1 {
-    color: $df4;
+    color: $df0;
 }
 
 // .files
@@ -118,7 +118,7 @@ ul.nav li a {
 }
 
 .dark ul.nav a {
-    color: $df4;
+    color: $df0;
 }
 
 .light ul.nav li a:hover {
@@ -126,7 +126,7 @@ ul.nav li a {
 }
 
 .dark ul.nav li a:hover {
-    color: $df3;
+    color: $df1;
 }
 
 .light ul.nav li a:active {
@@ -134,7 +134,7 @@ ul.nav li a {
 }
 
 .dark ul.nav li a:active {
-    color: $df2;
+    color: $df0;
 }
 
 .light ul.nav li.active a {
@@ -142,7 +142,7 @@ ul.nav li a {
 }
 
 .dark ul.nav li.active a {
-    color: $df2;
+    color: $df0;
 }
 
 ul.nav.files, ul.nav.panes {

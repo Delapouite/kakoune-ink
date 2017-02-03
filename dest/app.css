@@ -522,7 +522,7 @@ h1 {
   color: #979797; }
 
 .dark h1 {
-  color: #6f6f6f; }
+  color: #b0b0b0; }
 
 .files {
   float: left;
@@ -571,25 +571,25 @@ ul.nav li a {
   color: #979797; }
 
 .dark ul.nav a {
-  color: #6f6f6f; }
+  color: #b0b0b0; }
 
 .light ul.nav li a:hover {
   color: #6f6f6f; }
 
 .dark ul.nav li a:hover {
-  color: #7f7f7f; }
+  color: #9f9f9f; }
 
 .light ul.nav li a:active {
   color: #4a4a4a; }
 
 .dark ul.nav li a:active {
-  color: #8f8f8f; }
+  color: #b0b0b0; }
 
 .light ul.nav li.active a {
   color: #4a4a4a; }
 
 .dark ul.nav li.active a {
-  color: #8f8f8f; }
+  color: #b0b0b0; }
 
 ul.nav.files, ul.nav.panes {
   margin-bottom: -1px; }

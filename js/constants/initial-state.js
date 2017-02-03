@@ -17,7 +17,7 @@ const initialState = {
     activeFile: 'intro',
     activePane: 'dark',
     activeVariant: 'dark',
-    exportName: 'my-default',
+    exportName: 'my-colorscheme',
     exportedSource: undefined,
     hoverFace: undefined,
     parsedSource: files.intro.parsedSource,
@@ -46,7 +46,7 @@ const initialState = {
         modifiedFaces: 'hide',
         export_: 'show',
         widgets: 'hide',
-        dangerZone: 'show'
+        dangerZone: 'hide'
     },
     light: {
         // code
