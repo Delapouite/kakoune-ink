@@ -1,0 +1,450 @@
+@import 'base';
+@import 'reset';
+@import 'colors';
+@import 'typography';
+@import 'transitions';
+
+@import 'inputs';
+@import 'buttons';
+
+.light {
+    background-color: $lb0;
+    color: $lf3;
+}
+
+.dark {
+    background-color: $db0;
+    color: $df3;
+}
+
+// .wrap
+
+.wrap {
+    margin: 0 auto;
+    width: 110rem;
+}
+
+// header
+
+.light header {
+    border-bottom: 1px solid $lb2;
+}
+
+.dark header {
+    border-bottom: 1px solid $db2;
+}
+
+// h1
+
+h1 {
+    font-size: 1.7rem;
+    margin: 3rem 0rem 1rem 0rem;
+    text-align: left;
+}
+
+.light h1 {
+    color: $lf4;
+}
+
+.dark h1 {
+    color: $df4;
+}
+
+// .files
+
+.files {
+    float: left;
+    width: 84rem;
+}
+
+// .panes
+
+.panes {
+    float: right;
+    width: 23.5rem;
+}
+
+.panes .global-icon {
+    display: inline-block;
+    padding: 0 0.8rem;
+    position: relative;
+    top: 1px;
+    transform: scale(2);
+}
+
+// ul.nav
+
+ul.nav {
+    font-size: 1.3rem;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+// ul.nav li
+
+ul.nav li {
+    display: inline-block;
+    margin: 0 3rem 0 0;
+}
+
+ul.nav li:last-child {
+    margin-right: 0;
+}
+
+ul.nav li.right-link {
+    float: right;
+}
+
+.light ul.nav li.active {
+    border-bottom: 1px solid $lf5;
+}
+
+.dark ul.nav li.active {
+    border-bottom: 1px solid $df5;
+}
+
+// ul.nav li a
+
+ul.nav li a {
+    cursor: pointer;
+    display: inline-block;
+    padding: 1.5rem 0;
+    text-decoration: none;
+}
+
+.light ul.nav a {
+    color: $lf4;
+}
+
+.dark ul.nav a {
+    color: $df4;
+}
+
+.light ul.nav li a:hover {
+    color: $lf3;
+}
+
+.dark ul.nav li a:hover {
+    color: $df3;
+}
+
+.light ul.nav li a:active {
+    color: $lf2;
+}
+
+.dark ul.nav li a:active {
+    color: $df2;
+}
+
+.light ul.nav li.active a {
+    color: $lf2;
+}
+
+.dark ul.nav li.active a {
+    color: $df2;
+}
+
+ul.nav.files, ul.nav.panes {
+    margin-bottom: -1px;
+}
+
+.light ul.nav.links li a {
+    color: $lf5;
+}
+
+.dark ul.nav.links li a {
+    color: $df5;
+}
+
+.light ul.nav.links li a:hover {
+    color: $lf4;
+}
+
+.dark ul.nav.links li a:hover {
+    color: $df4;
+}
+
+.light ul.nav.links li a:active {
+    color: $lf3;
+}
+
+.dark ul.nav.links li a:active {
+    color: $df3;
+}
+
+// article
+
+article {
+    float: left;
+    width: 84rem;
+}
+
+// pre
+
+pre {
+    cursor: default;
+    margin: 2.5rem 0 0 0;
+    overflow: hidden;
+}
+
+.light pre {
+    box-shadow: 0.25rem 0.25rem 0.625rem $lb2;
+}
+
+.dark pre {
+    box-shadow: 0.25rem 0.25rem 0.625rem $db2;
+}
+
+// .paste
+
+textarea.paste {
+    float: left;
+    font-size: 1.5rem;
+    height: 64rem;
+    margin: 2.5rem 0 0 0;
+    width: 100%;
+}
+
+// aside
+
+aside {
+    float: right;
+    overflow: hidden;
+    width: 23.5rem;
+}
+
+// aside section
+
+aside section {
+    margin: 1.5rem 0;
+}
+
+aside section.first {
+    border-top: 0!important;
+    margin-top: 2.5rem !important;
+}
+
+.light aside section {
+    border-top: 1px solid $lb2;
+}
+
+.dark aside section {
+    border-top: 1px solid $db2;
+}
+
+// aside section h2
+
+aside section h2 {
+    cursor: pointer;
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+    text-align: right;
+}
+
+aside section h2 .icon {
+    padding-left: 0.875rem;
+    position: relative;
+    top: 0.1rem;
+}
+
+.light aside section h2 {
+    color: $lf4;
+}
+
+.dark aside section h2 {
+    color: $df4;
+}
+
+.light aside section h2:hover {
+    color: $lf3;
+}
+
+.dark aside section h2:hover {
+    color: $df3;
+}
+
+.light aside section h2:active {
+    color: $lf2;
+}
+
+.dark aside section h2:active {
+    color: $df2;
+}
+
+// .line
+
+.line {
+    margin-bottom: 1rem;
+    overflow: hidden;
+    font-size: 1.4rem;
+}
+
+// .selected-face-line
+
+.selected-face-line .right {
+    margin-left: 1rem;
+}
+
+.light .selected-face-line .right {
+    color: $lf5;
+}
+
+.dark .selected-face-line .right {
+    color: $df5;
+}
+
+// .color-line
+
+.color-line .left {
+    float: left;
+    width: 20%;
+}
+
+.color-line .right {
+    float: left;
+    line-height: 3rem;
+    width: 80%;
+}
+
+.light .color-line .right {
+    color: $lf4;
+}
+
+.dark .color-line .right {
+    color: $df4;
+}
+
+.light .color-line .right.active {
+    color: $lf3;
+}
+
+.dark .color-line .right.active {
+    color: $df3;
+}
+
+// .button-line
+
+.button-line .left {
+    float: left;
+    line-height: 3rem;
+    width: 64%;
+}
+
+.button-line .right {
+    float: left;
+    text-align: right;
+    width: 36%;
+}
+
+// .post-process-line
+
+.post-process-line .left {
+    float: left;
+    line-height: 3rem;
+    width: 40%;
+}
+
+.post-process-line .right {
+    float: left;
+    margin-top: 0.1rem;
+    width: 60%;
+}
+
+.light .post-process-line .left.inactive {
+    color: $lf4;
+}
+
+.dark .post-process-line .left.inactive {
+    color: $df4;
+}
+
+// .modified-faces-line
+
+.light .modified-faces-line.none {
+    color: $lf4;
+}
+
+.dark .modified-faces-line.none {
+    color: $df4;
+}
+
+// .export-line-input
+
+.export-line-input .left {
+    float: left;
+    line-height: 3rem;
+    width: 24%;
+}
+
+.export-line-input .right {
+    float: left;
+    width: 76%;
+}
+
+// .export-line-button
+
+.export-line-button {
+    text-align: right;
+}
+
+.export-line-input .right input {
+    width: 100%;
+}
+
+// .danger-zone-line
+
+.danger-zone-line {
+    text-align: right;
+}
+
+// footer
+
+footer {
+    margin: 2rem 0 2rem 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+// .export
+
+.export {
+    height: 60rem;
+    left: 50%;
+    margin-left: -40rem;
+    margin-top: -30rem;
+    padding: 2rem;
+    position: fixed;
+    text-align: right;
+    top: 50%; 
+    width: 80rem;
+}
+
+.light .export {
+    background-color: $lb2;
+    box-shadow: 0.25rem 0.25rem 0.625rem $lb4;
+    color: $lf2;
+}
+
+.dark .export {
+    background-color: $db2;
+    box-shadow: 0.25rem 0.25rem 0.625rem $db4;
+    color: $df2;
+}
+
+.export h2 {
+    font-size: 2rem;
+    margin: 0;
+    text-align: left;
+}
+
+.export p {
+    font-size: 1.4rem;
+    text-align: left;
+}
+
+.export textarea {
+    height: 41.5rem;
+    margin: 0 0 2rem 0;
+    width: 100%;
+}

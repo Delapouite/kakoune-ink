@@ -1,0 +1,26 @@
+{
+  "name": "kakoune-ink",
+  "version": "1.0.0",
+  "scripts": {
+    "watch:css": "node-sass -w scss/app.scss dest/app.css",
+    "watch:js": "watchify -dv -t babelify -t envify -o dest/app.js js/app.js",
+    "watch": "NODE_ENV=development npm-run-all -p watch:*"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "Delapouite",
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "envify": "^4.0.0",
+    "npm-run-all": "^4.0.1",
+    "watchify": "^3.9.0"
+  },
+  "dependencies": {
+    "color": "^0.6.0",
+    "lodash": "^4.17.4",
+    "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
+}
