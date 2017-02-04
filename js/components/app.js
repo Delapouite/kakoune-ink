@@ -139,8 +139,9 @@ var App = createClass({
 
     resetFace(face) {
         var {activeVariant} = this.state
-        var state = {}
-        state[activeVariant] = _.cloneDeep(this.state[activeVariant])
+        var state = {
+            [activeVariant]: _.cloneDeep(this.state[activeVariant])
+        }
 
         if (face in initialState[activeVariant]) {
             state[activeVariant][face] = _.cloneDeep(initialState[activeVariant][face])

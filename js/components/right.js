@@ -9,8 +9,7 @@ const Right = (props) =>
         h(PostProcess, merge(props, {key: 3})),
         h(ModifiedFaces, merge(props, {key: 4})),
         h(Widgets, merge(props, {key: 5})),
-        h(Export, merge(props, {key: 6})),
-        h(DangerZone, merge(props, {key: 7}))
+        h(Export, merge(props, {key: 6}))
     )
 
 const SelectedFace = (props) => {
@@ -291,11 +290,17 @@ class Export extends Component {
                         type: 'text',
                         value: this.props.exportName,
                         onChange: (e) => this.onChange(e)}))),
-            h('div', {className: 'line export-line-button'},
-                h('button', {
-                    className: 'button',
-                    onClick: () => this.onExportClick ()},
-                    'Export')))
+            h('div', {className: 'line button-line'},
+                h('div', {className: 'left'},
+                    h('button', {
+                        className: 'small-button',
+                        onClick: () => { if (confirm('Do you really want to reset?')) this.props.resetState() }},
+                        'Reset')),
+                h('div', {className: 'right'},
+                    h('button', {
+                        className: 'small-button',
+                        onClick: () => this.onExportClick()},
+                        'Export'))))
     }
 
     onChange(e) {
@@ -307,7 +312,10 @@ class Export extends Component {
     }
 }
 Export.propTypes = {
+    exportName: PropTypes.string.isRequired,
+
     setExportName: PropTypes.func.isRequired,
+    resetState: PropTypes.func.isRequired,
     exportColorScheme: PropTypes.func.isRequired,
 }
 
@@ -340,7 +348,7 @@ class Widget extends Component {
     render() {
         var buttonText = (this.props.visibility === 'show' ? 'Hide' : 'Show')
 
-        return h('div', {className: 'line  button-line'},
+        return h('div', {className: 'line button-line'},
             h('div', {className: 'left'}, this.props.label),
             h('div', {className: 'right'},
                 h('button', {
@@ -354,16 +362,6 @@ class Widget extends Component {
         this.props.setWidgetVisibility(this.props.widget, visibility)
     }
 }
-
-const DangerZone = (props) =>
-    h(Section, merge(props, {
-        id: 'dangerZone',
-        title: 'Danger zone'}),
-        h('div', {className: 'line danger-zone-line'},
-            h('button', {
-                className: 'button',
-                onClick: props.resetState},
-                'Reset')))
 
 class Section extends Component {
     render() {
