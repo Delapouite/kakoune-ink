@@ -29,7 +29,12 @@ var files = {
             [{"content":""}],[{"content":"1.  Pick a language above"}],
             [{"content":"2.  Click some part of this area to select a face"}],
             [{"content":"3.  Use the controls to the right to modify"}],
-            [{"content":"4.  Export your theme"}]]
+            [{"content":"4.  Export your theme"}],
+            [{"content":""}],
+            [{"content":"Get more help in kakoune using the following commands:"}],
+            [{"content":""}],
+            [{"face": "mono", "content":":doc faces"}],
+            [{"face": "mono", "content":":doc highlighters"}]]
     },
     about: {
         parsedSource: [
