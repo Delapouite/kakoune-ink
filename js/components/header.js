@@ -73,6 +73,7 @@ class PasteLink extends Component {
     }
 }
 PasteLink.propTypes = {
+    activeFile: PropTypes.string.isRequired,
     setParsedSource: PropTypes.func.isRequired,
     setActiveFile: PropTypes.func.isRequired,
 }
@@ -85,7 +86,7 @@ const Panes = (props) =>
 class Pane extends Component {
     render() {
         var className = (this.props.additionalClass !== undefined ? this.props.additionalClass : '') +
-            (this.props.activePane ===  this.props.id ? ' active' : '')
+            (this.props.activeVariant ===  this.props.id ? ' active' : '')
 
         return h('li', {
             className,
@@ -94,13 +95,12 @@ class Pane extends Component {
     }
 
     onClick() {
-        this.props.setActivePane(this.props.id)
         this.props.setActiveVariant(this.props.id)
     }
 }
 Pane.propTypes = {
     id: PropTypes.string.isRequired,
-    setActivePane: PropTypes.func.isRequired,
+    activeVariant: PropTypes.string.isRequired,
     setActiveVariant: PropTypes.func.isRequired,
 }
 

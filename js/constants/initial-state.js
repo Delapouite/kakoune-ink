@@ -15,7 +15,6 @@ const initialState = {
     _version: 0,
     activeColor: 'foreground',
     activeFile: 'intro',
-    activePane: 'light',
     activeVariant: 'light',
     exportName: 'my-colorscheme',
     exportedSource: undefined,

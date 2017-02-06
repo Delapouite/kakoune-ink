@@ -40,7 +40,6 @@ var App = createClass({
     getHeader() {
         return h(Header, merge(this.state, {
             setActiveFile: this.setActiveFile,
-            setActivePane:  this.setActivePane,
             setActiveVariant: this.setActiveVariant,
             setParsedSource: this.setParsedSource
         }))
@@ -91,7 +90,6 @@ var App = createClass({
             resetSelectedFaceProp: this.resetSelectedFaceProp,
             resetState: this.resetState,
             setActiveColor: this.setActiveColor,
-            setActivePane: this.setActivePane,
             setActiveVariant: this.setActiveVariant,
             setWidgetVisibility: this.setWidgetVisibility,
             setExportName: this.setExportName,
@@ -204,10 +202,6 @@ var App = createClass({
 
     setActiveFile(activeFile) {
         this.setState({activeFile})
-    },
-
-    setActivePane(activePane) {
-        this.setState({activePane})
     },
 
     setExportName(exportName) {
