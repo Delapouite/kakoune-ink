@@ -40,7 +40,7 @@ var App = createClass({
     getHeader() {
         return h(Header, merge(this.state, {
             setActiveFile: this.setActiveFile,
-            setActiveVariant: this.setActiveVariant,
+            setActiveScheme: this.setActiveScheme,
             setParsedSource: this.setParsedSource
         }))
     },
@@ -90,7 +90,7 @@ var App = createClass({
             resetSelectedFaceProp: this.resetSelectedFaceProp,
             resetState: this.resetState,
             setActiveColor: this.setActiveColor,
-            setActiveVariant: this.setActiveVariant,
+            setActiveScheme: this.setActiveScheme,
             setWidgetVisibility: this.setWidgetVisibility,
             setExportName: this.setExportName,
             setPostProcessProps: this.setPostProcessProps,
@@ -100,28 +100,28 @@ var App = createClass({
     },
 
     componentDidMount() {
-        document.body.className = this.state.activeVariant
+        document.body.className = this.state.activeScheme
     },
 
     componentDidUpdate() {
         localStorage.setItem('state', JSON.stringify(this.state))
     },
 
-    startAppTransition(variant, transition = 'variant-transition', duration = 500) {
+    startAppTransition(scheme, transition = 'variant-transition', duration = 500) {
         setTimeout(() => {
-            document.body.className = variant + ' ' + transition
-            setTimeout(() => document.body.className = variant, duration)
+            document.body.className = scheme + ' ' + transition
+            setTimeout(() => document.body.className = scheme, duration)
         }, 0)
     },
 
     getFace(face) {
-        var faces =  this.state[this.state.activeVariant]
+        var faces =  this.state.schemes[this.state.activeScheme]
         return face in faces ? faces[face] : {}
     },
 
     getModifiedFaces() {
-        var initialFaces = initialState[this.state.activeVariant]
-        var faces = this.state[this.state.activeVariant]
+        var initialFaces = initialState.schemes[this.state.activeScheme]
+        var faces = this.state.schemes[this.state.activeScheme]
 
         return Object.keys(faces).filter(face => {
             return !(face in initialFaces && _.isEqual(initialFaces[face], faces[face]))
@@ -132,22 +132,19 @@ var App = createClass({
         return getFaceStyle(
             this.getFace('Default'),
             this.getFace(face),
-            this.state.postProcess[this.state.activeVariant])
+            this.state.postProcess[this.state.activeScheme])
     },
 
     resetFace(face) {
-        var {activeVariant} = this.state
-        var state = {
-            [activeVariant]: _.cloneDeep(this.state[activeVariant])
-        }
-
-        if (face in initialState[activeVariant]) {
-            state[activeVariant][face] = _.cloneDeep(initialState[activeVariant][face])
+        const {activeScheme} = this.state
+        const scheme = Object.assign({}, this.state.schemes[activeScheme])
+        if (face in initialState.schemes[activeScheme]) {
+            scheme[face] = Object.assign({}, initialState.schemes[activeScheme][face])
         } else {
-            delete state[activeVariant][face]
+            delete scheme[face]
         }
-
-        this.setState(state)
+        const schemes = Object.assign({}, this.state.schemes, { [activeScheme]: scheme })
+        this.setState(Object.assign({}, this.state, { schemes }))
     },
 
     setHoverFace(hoverFace) {
@@ -155,17 +152,15 @@ var App = createClass({
     },
 
     setSelectedFaceProps(props) {
-        var {activeVariant, selectedFace} = this.state
-        var state = {
-            [activeVariant]: _.cloneDeep(this.state[activeVariant])
+        var {activeScheme, selectedFace} = this.state
+        const scheme = Object.assign({}, this.state.schemes[activeScheme])
+        if (selectedFace in scheme) {
+            scheme[selectedFace] = Object.assign({}, scheme[selectedFace], props)
+        } else {
+            scheme[selectedFace] = {}
         }
-
-        if (!(selectedFace in state[activeVariant])) {
-            state[activeVariant][selectedFace] = {}
-        }
-
-        Object.assign(state[activeVariant][selectedFace], props)
-        this.setState(state)
+        const schemes = Object.assign({}, this.state.schemes, { [activeScheme]: scheme })
+        this.setState(Object.assign({}, this.state, { schemes }))
     },
 
     deleteSelectedFaceProp(prop) {
@@ -179,12 +174,11 @@ var App = createClass({
     },
 
     resetSelectedFaceProp(prop) {
-        var {activeVariant, selectedFace} = this.state
+        var {activeScheme, selectedFace} = this.state
         var props = {}
-
-        if (selectedFace in initialState[activeVariant] &&
-            prop in initialState[activeVariant][selectedFace]) {
-            props[prop] = initialState[activeVariant][selectedFace][prop]
+        if (selectedFace in initialState.schemes[activeScheme] &&
+            prop in initialState.schemes[activeScheme][selectedFace]) {
+            props[prop] = initialState.schemes[activeScheme][selectedFace][prop]
         } else {
             props[prop] = undefined
         }
@@ -225,13 +219,13 @@ var App = createClass({
         var state = {
             postProcess: _.cloneDeep(this.state.postProcess)
         }
-        Object.assign(state.postProcess[this.state.activeVariant], props)
+        Object.assign(state.postProcess[this.state.activeScheme], props)
         this.setState(state)
     },
 
-    setActiveVariant(activeVariant) {
-        this.setState({activeVariant})
-        this.startAppTransition(activeVariant)
+    setActiveScheme(activeScheme) {
+        this.setState({activeScheme})
+        this.startAppTransition(activeScheme)
     },
 
     setActiveColor(activeColor) {
@@ -252,7 +246,7 @@ var App = createClass({
 
     resetState() {
         this.setState(_.cloneDeep(initialState))
-        this.startAppTransition(initialState.activeVariant, 'reset-transition', 750)
+        this.startAppTransition(initialState.activeScheme, 'reset-transition', 750)
     }
 })
 

@@ -86,7 +86,7 @@ const Panes = (props) =>
 class Pane extends Component {
     render() {
         var className = (this.props.additionalClass !== undefined ? this.props.additionalClass : '') +
-            (this.props.activeVariant ===  this.props.id ? ' active' : '')
+            (this.props.activeScheme ===  this.props.id ? ' active' : '')
 
         return h('li', {
             className,
@@ -95,13 +95,13 @@ class Pane extends Component {
     }
 
     onClick() {
-        this.props.setActiveVariant(this.props.id)
+        this.props.setActiveScheme(this.props.id)
     }
 }
 Pane.propTypes = {
     id: PropTypes.string.isRequired,
-    activeVariant: PropTypes.string.isRequired,
-    setActiveVariant: PropTypes.func.isRequired,
+    activeScheme: PropTypes.string.isRequired,
+    setActiveScheme: PropTypes.func.isRequired,
 }
 
 module.exports = Header

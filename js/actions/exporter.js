@@ -28,7 +28,7 @@ function exportFace(name, props, postProcess) {
     return str.join('')
 }
 
-function exportVariant(variant, postProcess) {
+function exportScheme(scheme, postProcess) {
     var reset = [
         // code
         'value',
@@ -83,14 +83,13 @@ function exportVariant(variant, postProcess) {
     ]
 
     var str = ['# code\n']
-    var faces = variant
+    var faces = scheme
 
     reset.forEach(resetFace => {
         if (!(resetFace in faces)) {
             faces[resetFace] = {}
         }
     })
-
 
     for (var face in faces) {
         if (face === 'title') str.push('\n# text\n')
@@ -103,9 +102,9 @@ function exportVariant(variant, postProcess) {
 }
 
 function exportColorScheme(state) {
-    return state.activeVariant === 'light'
-        ? exportVariant(state.light, state.postProcess.light)
-        : exportVariant(state.dark, state.postProcess.dark)
+    return state.activeScheme === 'light'
+        ? exportScheme(state.schemes.light, state.postProcess.light)
+        : exportScheme(state.schemes.dark, state.postProcess.dark)
 }
 
 module.exports = exportColorScheme

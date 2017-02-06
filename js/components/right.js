@@ -35,7 +35,7 @@ const Colors = (props) => {
         id: 'color',
         title: 'Color'}),
         h(Color, {
-            pageBackgroundColor: props.activeVariant === 'light' ? '#ffffff' : '#000000',
+            pageBackgroundColor: props.activeScheme === 'light' ? '#ffffff' : '#000000',
             id: 'foregroundColor',
             activeId: 'foreground',
             active: props.activeColor === 'foreground',
@@ -50,7 +50,7 @@ const Colors = (props) => {
             setSelectedFaceProps: props.setSelectedFaceProps
         }),
         h(Color, {
-            pageBackgroundColor: props.activeVariant === 'light' ? '#ffffff' : '#000000',
+            pageBackgroundColor: props.activeScheme === 'light' ? '#ffffff' : '#000000',
             id: 'backgroundColor',
             activeId: 'background',
             active: props.activeColor === 'background',
@@ -193,7 +193,7 @@ HighlightButton.propTypes = {
 
 class PostProcess extends Component {
     render() {
-        var {brightness, saturation} = this.props.postProcess[this.props.activeVariant]
+        var {brightness, saturation} = this.props.postProcess[this.props.activeScheme]
         var brightnessClassName = 'left' + (Number(brightness) === 0 ? ' inactive' : '')
         var saturationClassName = 'left' + (Number(saturation) === 0 ? ' inactive' : '')
 
