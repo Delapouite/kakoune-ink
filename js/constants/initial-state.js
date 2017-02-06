@@ -3,6 +3,17 @@ const files = require('./files')
 
 const c = '0123456789ABCDEF'.split('').map(x => `#${x}${x}${x}${x}${x}${x}`)
 
+const red = '#FF0000'
+const green = '#00FF00'
+const blue = '#0000FF'
+
+const yellow = '#FFFF00'
+const magenta = '#FF00FF'
+const cyan = '#00FFFF'
+
+const white = '#FFFFFF'
+const black = '#000000'
+
 const reverse = (face) => {
     let r = {}
     if (face.color) r.color = Color(face.color).negate().hexString()
@@ -27,6 +38,10 @@ const initialState = {
             saturation: 0
         },
         dark: {
+            brightness: 0,
+            saturation: 0
+        },
+        default: {
             brightness: 0,
             saturation: 0
         }
@@ -100,6 +115,59 @@ const initialState = {
             StatusLineValue: {color: c[0], backgroundColor: c[11] },
             StatusCursor: {backgroundColor: c[8] },
             Prompt: {color: c[14], backgroundColor: c[2]},
+        },
+        default: {
+            // code
+            value: {color: red},
+            type: {color: yellow},
+            identifier: {color: green},
+            string: {color: magenta},
+            error: {backgroundColor: red},
+            keyword: {color: blue},
+            operator: {color: yellow},
+            attribute: {color: green},
+            comment: {color: cyan},
+            meta: {color: magenta},
+
+            // text
+            title: {color: blue},
+            header: {color: cyan},
+            bold: {color: red},
+            italic: {color: yellow},
+            mono: {color: green},
+            block: {color: magenta},
+            link: {color: cyan},
+            bullet: {color: cyan},
+            list: {color: yellow},
+
+            // ui
+            Default: {color: white, backgroundColor: black},
+
+            PrimarySelection: {color: white, backgroundColor: blue},
+            SecondarySelection: {color: black, backgroundColor: blue},
+            PrimaryCursor: {color: black, backgroundColor: white},
+            SecondaryCursor: {color: black, backgroundColor: white},
+
+            MatchingChar: {color: white, backgroundColor: black, highlight: 'bold'},
+            Search: {backgroundColor: yellow},
+            Whitespace: {backgroundColor: red},
+            BufferPadding: {color: blue},
+
+            LineNumbers: {color: white, backgroundColor: black},
+            LineNumberCursor: {color: white, backgroundColor: black, highlight: 'reverse'},
+
+            MenuForeground: {color: white, backgroundColor: blue},
+            MenuBackground: {color: blue, backgroundColor: white},
+            MenuInfo: {color: cyan},
+            Information: {color: black, backgroundColor: yellow},
+            Error: {color: black, backgroundColor: red},
+
+            StatusLine: {color: cyan, backgroundColor: black},
+            StatusLineMode: {color: yellow, backgroundColor: black},
+            StatusLineInfo: {color: blue, backgroundColor: black},
+            StatusLineValue: {color: green, backgroundColor: black},
+            StatusCursor: {color: black, backgroundColor: cyan},
+            Prompt: {color: yellow, backgroundColor: black},
         }
     }
 }

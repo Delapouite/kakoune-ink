@@ -81,7 +81,8 @@ PasteLink.propTypes = {
 const Panes = (props) =>
     h('ul', {className: 'nav panes'},
         h(Pane, merge(props, {id: 'dark'}), 'Dark'),
-        h(Pane, merge(props, {id: 'light'}), 'Light'))
+        h(Pane, merge(props, {id: 'light'}), 'Light'),
+        h(Pane, merge(props, {id: 'default'}), 'Default'))
 
 class Pane extends Component {
     render() {
