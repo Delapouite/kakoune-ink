@@ -195,13 +195,7 @@ var App = createClass({
     },
 
     selectFace(selectedFace) {
-        var newState = {selectedFace}
-
-        if (this.state.activePane === 'global') {
-            newState.activePane = this.state.activeVariant
-        }
-
-        this.setState(newState)
+        this.setState({selectedFace})
     },
 
     setParsedSource(parsedSource) {
@@ -255,7 +249,6 @@ var App = createClass({
     },
 
     exportColorScheme() {
-        console.log('yyyoooooo', this.state)
         this.setState({ exportedSource: exporter(_.cloneDeep(this.state)) })
     },
 
@@ -265,7 +258,7 @@ var App = createClass({
 
     resetState() {
         this.setState(_.cloneDeep(initialState))
-        // this.startAppTransition(initialState.activeVariant, 'reset-transition', 750);
+        this.startAppTransition(initialState.activeVariant, 'reset-transition', 750)
     }
 })
 

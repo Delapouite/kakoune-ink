@@ -95,10 +95,7 @@ class Pane extends Component {
 
     onClick() {
         this.props.setActivePane(this.props.id)
-
-        if (this.props.id !== 'global') {
-            this.props.setActiveVariant(this.props.id)
-        }
+        this.props.setActiveVariant(this.props.id)
     }
 }
 Pane.propTypes = {
