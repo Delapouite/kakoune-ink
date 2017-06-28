@@ -15,6 +15,12 @@ https://delapouite.github.io/kakoune-ink/
 
     console.log(JSON.stringify(JSON.parse(localStorage.getItem('state')).parsedSource));
 
+
+## See also
+
+- [kakoune-colors](https://github.com/delapouite/kakoune-colors): collection of dark and light colorschemes
+- [kakoune-palette](https://github.com/Delapouite/kakoune-palette): preview colors in the gutter
+
 ## License
 
 Based on vim.ink
