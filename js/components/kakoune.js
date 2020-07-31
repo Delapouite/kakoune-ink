@@ -161,7 +161,7 @@ const Information = (props) => {
         h('div', null,
             h('div', null,
                 h(Part, merge(props, { face: 'BufferPadding', content: spaces(70) })),
-                h(Part, merge(props, { face: 'Information', content: '┌──────┤ info ├─────┐' })),
+                h(Part, merge(props, { face: 'Information', content: '┌───────┤ info ├──────┐' })),
             ),
             h('div', null,
                 h(Part, merge(props, { face: 'BufferPadding', content: spaces(70) })),
@@ -169,7 +169,7 @@ const Information = (props) => {
             ),
             h('div', null,
                 h(Part, merge(props, { face: 'BufferPadding', content: spaces(70) })),
-                h(Part, merge(props, { face: 'Information', content: '└──────────────────┘' })),
+                h(Part, merge(props, { face: 'Information', content: '└─────────────────────┘' })),
             )
         )
     )
